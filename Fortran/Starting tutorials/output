@@ -1,0 +1,7 @@
+gfortran fortrantut.f90
+gfortran fortrantut2.f90
+gfortran tuto_print.f90
+gfortran tuto_number.f90
+gfortan tuto_FEISTY.90
+.\fortrantut 
+./a.out

@@ -1,0 +1,35 @@
+Install MinGW: package:
+ - All basic setup 
+ - MinGW Base System 
+    - minGW32-gcc-fortran all classes
+    - minGW32-gcc-v3-fortran
+
+copy: C:\MinGW\bin
+Go to: Environenment variable > variable untilisateur >
+path > edit > paste C:\MinGW\bin
+
+in windows terminal: 
+>gcc
+gcc: fatal error: no input files
+compilation terminated.
+
+>gfortran
+gfortran: fatal error: no input files
+compilation terminated.
+
+>gfortran -h
+gfortran: error: missing argument to '-h'
+gfortran: fatal error: no input files
+compilation terminated.
+
+--------------------------------------------------------------
+
+Install visual studio code:
+install packages: 
+- fotran for visual studio: extension .f90
+- code runner 
+- C/C++
+
+--------------------------------------------------------------
+call from terminal: 
+settings>search: terminal> run code config> check run in terminal
