@@ -20,7 +20,7 @@ $ git rm --cached Tut_livesript.mlx    # Remove "Tut_livesript.mlx" from track
 $ git status                           # get the statuts of the current files
 $ git restore --staged                 # to undo
 ```
-On branch main, to get the changes to be committed: use `git restore --staged <file>` to unstage. To untracked files use `git add <file>` to include in what will be committed
+On branch main, to get the changes to be committed: use `git restore --staged <file>` to unstage. To untracked files use `git add <file>` to include in what will be committed)
 
 ## Commit
 
@@ -54,6 +54,7 @@ $ git switch -               # to go back to current state
 ```
 
 - change a previous commit
+
 
 
 ## Creat new branch
@@ -124,13 +125,10 @@ objects: 100% (23/23), 303.91 MiB | 12.67 MiB/s, done. Total 23 (delta 8), reuse
 date
 ```
 This is due to git/https buffer settings a solution: Run the following command to increase the buffer to 500MB after navigating to the repository:
+
+
 ```
 $ git config http.postBuffer 524288000
 ```
 
-## Untrack deleted files. 
-```
-$ git push -u origin main
-remote: error: File FEISTY app/FEISTY-Squid Fishing - Temperature/FEISTYsquidFishingTemp_standalone/for_redistribution/MyAppInstaller_mcr.exe is 834.04 MB; this exceeds GitHub's file size limit of 100.00 MB
-```
-The previous error indicates that some file exceeded the size limit, however, if these files have been deleted before beeing untracted, then they cannot be removed with `git rm filename` and `git add .` will not untrack the deleted files.
+

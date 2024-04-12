@@ -1,36 +1,52 @@
-% Define a default value on the root level so that all subsequent plotting 
-% functions use those defaults. 
-% Specify the root in set and get statements using the groot function,
-% which returns the handle to the root.
-% Define default property values on three levels (Copy from matlab documentation):
-
-% " Root — values apply to objects created in current MATLAB® session
-% Figure — use for default values applied to children of the figure defining 
-% the defaults.
-% Axes — use for default values applied only to children of the axes defining 
-% the defaults and only when using low-level functions (light, line, patch,
-% rectangle, surface, text, and the low-level form of image)."
-
+% AXES_FORMATING:
+% Define a series of basic axes default value.  
+%
+% Usage: axes_formating(uiObject, option)
+%
+% uiObject: can be one of three type
+%   - groot: Root — values apply to objects created in current MATLAB® session
+%   - gcf:  Figure — use for default values applied to children of the figure defining 
+%     the defaults.
+%   - gca: Axes — use for default values applied only to children of the axes defining 
+%     the defaults and only when using low-level functions (light, line, patch,
+%     rectangle, surface, text, and the low-level form of image)."
+%
 % Define a default property value using a character vector with these three parts:
 %       'default' ObjectType PropertyName
-
-%!!!! Line properties have to be defined at the roo level (groot) as plot
-% is a high order function that takes input from figure or root level,
-% axes are children from plot so defining properties from axes will not be
-% used by plot 
+%
+% see also: Graphics and set
 
 %!!! This does not applie to gscatter functions. 
+function axes_formating(uiObject, option)
+% function setup: --------------------------------------------------------
+arguments
+    uiObject                                                       = gcf()
+    option.LineLineWidth                                    double = 1.5
+    option.LineMarkerSize                                   double = 15
+    option.LineMarker                                         char = 'O'
+    option.LineFontSize                                     double = 11
+    option.AxesTitleHorizontalAlignment                       char = 'center'
+    option.AxesXScale                                         char = 'linear'
+    option.AxesYScale                                         char = 'linear'
+    option.AxesBox                                            char = 'on'
+end 
 
-set(gfigure,... % Define default values at root level
-    'DefaultLineLineWidth', 1.5, ...      % Line properties 
-    'DefaultLineMarkerSize', 15, ...
-    'DefaultLineMarker','O', ...
-    'DefaultAxesFontSize', 11,...     % Axes properties 
-    'DefaultAxesTitleHorizontalAlignment', 'center', ...
-    'DefaultAxesXScale', 'linear',...
-    'DefaultAxesYScale', 'linear', ...
-    'DefaultAxesBox', 'on')
+% Define the level at which the function occurs: --------------------------
+
+set(uiObject,...                           % Define default level at wich the formating is made 
+    'DefaultLineLineWidth',  option.LineLineWidth, ...      % Line properties 
+    'DefaultLineMarkerSize', option.LineMarkerSize, ...
+    'DefaultLineMarker',     option.LineMarker, ...
+    'DefaultAxesFontSize', option.LineFontSize,...     % Axes properties 
+    'DefaultAxesTitleHorizontalAlignment', option.AxesTitleHorizontalAlignment, ...
+    'DefaultAxesXScale', option.AxesXScale,...
+    'DefaultAxesYScale', option.AxesYScale, ...
+    'DefaultAxesBox', option.AxesBox)
+
+end
+
+
+%     'DefaultLineMarkerFaceColor', option.LineMarkerFaceColor, ...
 % , ...         % Tiledlayout formating
 %     'DefaultLineTiledChartLayoutTileSpacing', 'compact', ...
 %     'DefaultLineTiledChartLayoutPadding', 'compact')
-
