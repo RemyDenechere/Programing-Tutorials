@@ -1,57 +1,47 @@
-function plot_handle = ciplot(lower, upper, x, colour,alpha, Linestyle, VisLegend)
-     
-% ciplot(lower,upper)       
-% ciplot(lower,upper,x)
-% ciplot(lower,upper,x,colour)
-% ciplot(lower,upper,x,colour,alpha)
-%
 % Plots a shaded region on a graph between specified lower and upper confidence intervals (L and U).
 % l and u must be vectors of the same length.
 % Uses the 'fill' function, not 'area'. Therefore multiple shaded plots
 % can be overlayed without a problem. Make them transparent for total visibility.
 % x data can be specified, otherwise plots against index values.
 % colour can be specified (eg 'k'). Defaults to blue.
+% Rémy Denéchère 02/29/2024 based on Raymond Reynolds 24/11/06 
 
-% Raymond Reynolds 24/11/06
-%
-% Add: 5th parameter, alpha (Default=50%)
-% Pham Thai Binh 12/06/2017
+% Usage: 
+% ciplot(lower,upper)       
+% ciplot(lower,upper,x)
+% ciplot(lower,upper,x,option)
+% ciplot(lower,upper,  option)
 
-% Add: 6th parameter: LineStyle(default = '-')
-% Add: 7th parameter: VisLegend(default = 'on')
-% Rémy Denéchère 07/04/2021
+
+function plot_handle = ciplot(lower, upper, x, option)
+     arguments 
+        lower             double 
+        upper             double 
+        x                 double                                            = 1:length(Lower)
+        option.colour                                                       = 'b'
+        option.alpha      double                                            = 0.5
+        option.Linestyle  char {mustBeMember(["-", "--",":","-.", "none"])} = "-"
+        option.VisLegend  char {mustBeMember(["on", "off"])}                = "off"
+     end 
+
 
 if length(lower)~=length(upper)
     error('lower and upper vectors must be same length')
-end
-if nargin <7
-    VisLegend = 'on';
-end
-if nargin<6
-    Linestyle = '-';
-end
-if nargin<5
-    alpha=0.5;
+elseif length(x)~=length(upper)
+    error('x and upper vectors must be same length')
 end
 
-if nargin<4
-    colour='b';
-end
-
-if nargin<3
-    x=1:length(lower);
-end
 
 % convert to row vectors so fliplr can work
 if find(size(x)==(max(size(x))))<2
-x=x'; end
+    x=x'; end
 if find(size(lower)==(max(size(lower))))<2
-lower=lower'; end
+    lower=lower'; end
 if find(size(upper)==(max(size(upper))))<2
-upper=upper'; end
+    upper=upper'; end
 
-plot_handle = fill([x fliplr(x)],[upper fliplr(lower)],  colour, ...
-    'FaceAlpha', alpha ,'LineStyle', Linestyle, 'EdgeColor', 'none', ...
-    'HandleVisibility', VisLegend); % 
+plot_handle = fill([x fliplr(x)],[upper fliplr(lower)],  option.colour, ...
+    'FaceAlpha', option.alpha ,'LineStyle', option.Linestyle, 'EdgeColor', 'none', ...
+    'HandleVisibility', option.VisLegend); 
 end
 

@@ -1,8 +1,24 @@
-function save_graph(fig, FileType ,name, w, h)
-%SAVE_PDF: input variables: fig to be saved, the width and height
-% of the pdf. 
+function save_graph(fig, FileType, name, w, h)
+% save_graph: 
+% Input variables: 
+%   1) fig: The fig to be saved
+%   2) FileType: File extension for the output: "pdf", "jpeg", "png","eps",
+%                "svg"! use "svg" to handle the figure with inkscape
+%   3) name: figure name
+%   4) w: width in cm 
+%   5) h: height in cm
+% See also PRINT
+% Rémy Denéchère 4/12/2024
+arguments 
+    fig  = gcf() 
+    FileType char {mustBeMember(["pdf", "jpeg", "png","eps", "svg"])} = "pdf"
+    name
+    w
+    h
+end 
 
-FileType = ['-d', FileType]; 
+
+FileType = ['-d', string(FileType)]; 
 
 x0=0;
 y0=0;
