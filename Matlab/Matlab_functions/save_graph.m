@@ -11,14 +11,14 @@ function save_graph(fig, FileType, name, w, h)
 % Rémy Denéchère 4/12/2024
 arguments 
     fig  = gcf() 
-    FileType char {mustBeMember(["pdf", "jpeg", "png","eps", "svg"])} = "pdf"
-    name
-    w
-    h
+    FileType  {mustBeMember(FileType, ["pdf", "jpeg", "png", "eps", "svg"])} = "pdf"
+    name                        = 'unnamed'
+    w         {mustBeNumeric}   = 12
+    h         {mustBeNumeric}   = 12
 end 
 
 
-FileType = ['-d', string(FileType)]; 
+FileType = ['-d', char(FileType)]; 
 
 x0=0;
 y0=0;
