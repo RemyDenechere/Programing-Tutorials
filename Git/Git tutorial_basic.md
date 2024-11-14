@@ -1,4 +1,8 @@
 # Basic tutorial for Git and GitHub
+
+## Install gh 
+Go [here](https://github.com/cli/cli#installation) and follow instruction
+
 ## Managing local and online directories and branches
 ### Check the Git configuration
 
