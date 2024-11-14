@@ -1,8 +1,3 @@
----
-title: "Tuturial config git and github"
-output: pdf_document
----
-
 # Tuturial config git and github
 Rémy Denéchère 
 remy.denechere@gmail.com
