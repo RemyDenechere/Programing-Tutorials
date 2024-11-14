@@ -1,4 +1,8 @@
 # Git tools 
+Rémy Denéchère 
+remy.denechere@gmail.com
+
+---
 
 ## Clone all branches of a directory 
 
