@@ -2,6 +2,8 @@
 Rémy Denéchère 
 remy.denechere@gmail.com
 
+---
+
 ## Install gh 
 Go [here](https://github.com/cli/cli#installation) and follow instruction
 
