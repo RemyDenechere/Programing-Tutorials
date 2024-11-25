@@ -32,5 +32,5 @@ When you have tracked large files that cannot be pushed to github removing these
 
 To solve it run: 
 ```
- git filter-branch --tree-filter --force 'rm -f output/Matlab_Average/*.mat' HEAD  --prune-empty
+ git filter-branch -f --tree-filter 'rm -f output/Matlab_Average/*.mat' HEAD  --prune-empty
 ```
