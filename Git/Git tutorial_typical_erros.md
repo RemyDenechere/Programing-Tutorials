@@ -42,7 +42,7 @@ In the case where the big files or any other unwanted file has been commited but
 git reset --soft HEAD~1
 ```
 
-2)Delete the most recent commit, destroying the work you've done:
+2) Delete the most recent commit, destroying the work you've done:
 ```
 git reset --hard HEAD~1
 ```
