@@ -34,3 +34,15 @@ To solve it run:
 ```
  git filter-branch -f --tree-filter 'rm -f output/Matlab_Average/*.mat' HEAD
 ```
+
+## Undo last commit 
+In the case where the big files or any other unwanted file has been commited but not pushed you can remove the last commit, and keep or don't keep the changes:
+1) Delete the most recent commit, keeping the work you've done:
+```
+git reset --soft HEAD~1
+```
+
+2)Delete the most recent commit, destroying the work you've done:
+```
+git reset --hard HEAD~1
+```
