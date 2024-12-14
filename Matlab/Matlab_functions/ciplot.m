@@ -17,11 +17,11 @@ function plot_handle = ciplot(lower, upper, x, option)
      arguments 
         lower             double 
         upper             double 
-        x                 double                                            = 1:length(Lower)
+        x                 {mustBeNumeric}                                   = 1:length(Lower)
         option.colour                                                       = 'b'
         option.alpha      double                                            = 0.5
-        option.Linestyle  char {mustBeMember(["-", "--",":","-.", "none"])} = "-"
-        option.VisLegend  char {mustBeMember(["on", "off"])}                = "off"
+        option.Linestyle  string {mustBeMember(option.Linestyle, ["-", "--",":","-.", "none"])} = "-"
+        option.VisLegend  string {mustBeMember(option.VisLegend, ["on", "off"])}                = "off"
      end 
 
 
