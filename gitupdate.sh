@@ -2,7 +2,7 @@
 #
 # bash file to add changes / commit / and push
 # Define variables: 
-REPO=$(pwd)
+REPO="Programing-Tutorials"
 USER_NAME="RemyDenechere"
 GITHUB_TOKEN=$(cat ~/token)
 WORKING_DIR=$(pwd)
