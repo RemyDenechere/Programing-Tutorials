@@ -15,7 +15,7 @@ The flag `-b main` is not necessary as the default init is main
 
 ## Stage and commit all the files in your project.
 ```
-$ git add.                             # Track all the files
+$ git add .                            # Track all the files
 $ git rm --cached Tut_livesript.mlx    # Remove "Tut_livesript.mlx" from track
 $ git status                           # get the statuts of the current files
 $ git restore --staged                 # to undo

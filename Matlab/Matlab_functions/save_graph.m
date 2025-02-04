@@ -20,14 +20,15 @@ end
 
 FileType = ['-d', char(FileType)]; 
 
-x0=0;
-y0=0;
+x0=5;
+y0=5;
 width=w;
 height=h; 
-set(fig, 'Units', 'centimeters', 'position',[x0,y0,width,height])
+set(fig, 'Units', 'centimeters', 'position', [x0, y0, width, height])
 screenposition = get(gcf,'Position'); % get the figure size
 set(fig, 'PaperUnits','centimeters',...
     'PaperPosition',[0 0 screenposition(3:4)],...
     'PaperSize', [screenposition(3:4)]); % make the print paper size fits the figure size
 print(fig, '-painters', FileType , name) 
+
 end
