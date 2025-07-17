@@ -17,6 +17,7 @@ arguments
     h         {mustBeNumeric}   = 12
 end 
 
+disp(name)
 
 FileType = ['-d', char(FileType)]; 
 
